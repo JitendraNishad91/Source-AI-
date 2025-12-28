@@ -1,17 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
+import './index.css'; // This will contain the Tailwind imports
+// Firebase is initialized in src/firebase.js
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Temporary fix for the global variables not defined in local environment
+// NOTE: In the Canvas environment, these are provided automatically.
+// For local testing, you must provide real Firebase Config here.
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+window.__app_id = 'local-souce-chat';
+// If you want to use the anonymous sign-in, you can keep this null
+window.__initial_auth_token = null; 
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(<App />);
