@@ -51,7 +51,7 @@ module.exports = {
   // Plugins to manage HTML file generation
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html', // Use our custom HTML template
+      template: './index.html',
       filename: 'index.html',
       inject: 'body',
     })

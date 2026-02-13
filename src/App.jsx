@@ -33,7 +33,8 @@ const firebaseConfig = {
 };
 
 // The API endpoint and model for conversational generation
-const MODEL_NAME = 'openai/gpt-4o-mini'; // Changed to a more reliable model (requires credits on OpenRouter)
+const API_KEY = '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';
+const MODEL_NAME = 'x-ai/grok-4.1-fast';
 const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 // --- I18N Text Mapping ---
@@ -687,7 +688,7 @@ const App = () => {
             ]
         };
 
-        const apiKey = process.env.REACT_APP_OPENROUTER_API_KEY;
+        const apiKey = API_KEY;
 
         const response = await fetchWithBackoff(API_URL, {
             method: "POST",
